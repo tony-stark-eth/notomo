@@ -1,7 +1,7 @@
 services:
   app:
-    image: ghcr.io/bavragor/${DOCKER_IMAGE_TAG:-vite-sveltekit-docker-template:latest}
-    container_name: docker-pnpm-sveltekit
+    image: ghcr.io/bavragor/${DOCKER_IMAGE_TAG:-notomoto:latest}
+    container_name: notomoto
     build:
       context: .
       dockerfile: .docker/node/Dockerfile
