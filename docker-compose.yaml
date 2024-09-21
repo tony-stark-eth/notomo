@@ -1,5 +1,10 @@
 services:
   app:
+    depends_on:
+      - database
+    profiles:
+      - default
+      - full
     image: ghcr.io/bavragor/${DOCKER_IMAGE_TAG:-notomoto:latest}
     container_name: notomoto
     build:
@@ -22,3 +27,29 @@ services:
       - .env
     restart: 'unless-stopped'
     tty: true
+  database:
+    profiles:
+      - default
+      - full
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_USER: ${DATABASE_USER:-notomoto}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-notomoto-pw}
+      POSTGRES_DB: ${DATABASE_NAME:-notomoto}
+
+  adminer:
+    profiles:
+      - full
+    image: adminer
+    restart: always
+    ports:
+      - ${ADMINER_PORT:-8000}:8080

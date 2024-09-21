@@ -1,6 +1,7 @@
 # Variables
 DOCKER_COMPOSE_FILE = docker-compose.yaml
 SERVICE_NAME = app
+COMPOSE_PROFILES=full
 
 # Default target
 .DEFAULT_GOAL := help
@@ -27,12 +28,12 @@ help:
 # Start containers
 up:
 	@echo "Starting containers..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) up -d
+	COMPOSE_PROFILES=$(COMPOSE_PROFILES) docker compose -f $(DOCKER_COMPOSE_FILE) up -d
 
 # Stop and remove containers
 down:
 	@echo "Stopping containers..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) down
+	COMPOSE_PROFILES=$(COMPOSE_PROFILES) docker compose -f $(DOCKER_COMPOSE_FILE) down
 
 # Install dependencies
 install:
@@ -43,7 +44,7 @@ install:
 # Restart containers
 restart:
 	@echo "Restarting containers..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) restart
+	COMPOSE_PROFILES=$(COMPOSE_PROFILES) docker compose -f $(DOCKER_COMPOSE_FILE) restart
 
 # View logs
 logs:
@@ -58,7 +59,7 @@ exec:
 # Stop containers and remove volumes
 clean:
 	@echo "Stopping containers and removing volumes..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) down -v
+	COMPOSE_PROFILES=$(COMPOSE_PROFILES) docker compose -f $(DOCKER_COMPOSE_FILE) down -v
 
 # Prune unused Docker volumes and images
 prune:
@@ -68,7 +69,7 @@ prune:
 # Build or rebuild the Docker containers
 build:
 	@echo "Building/rebuilding containers..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) build
+	COMPOSE_PROFILES=$(COMPOSE_PROFILES) docker compose -f $(DOCKER_COMPOSE_FILE) build
 
 # List running containers
 ps:
