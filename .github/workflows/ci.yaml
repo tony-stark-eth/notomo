@@ -51,6 +51,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker-bake
     timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Check Out
         uses: actions/checkout@v4
@@ -60,13 +63,16 @@ jobs:
         uses: ./.github/actions/docker-prepare-workspace
         with:
           docker-image-tag: ${{ needs.docker-bake.outputs.docker-image-tag }}
-          docker-compose-services: 'app'
+          docker-compose-services: 'app database'
           make-init-targets-before: 'setup'
           make-init-targets-after: 'install'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Svelte Check
+      - name: Run Linting
         run: docker compose exec app pnpm run lint
+
+      - name: Run build
+        run: docker compose exec app pnpm run build --mode test
 
       - name: Run Svelte Check
         run: docker compose exec app pnpm run check
@@ -75,6 +81,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker-bake
     timeout-minutes: 25
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Check Out
         uses: actions/checkout@v4
@@ -84,9 +93,13 @@ jobs:
         uses: ./.github/actions/docker-prepare-workspace
         with:
           docker-image-tag: ${{ needs.docker-bake.outputs.docker-image-tag }}
+          docker-compose-services: 'app database'
           make-init-targets-before: 'setup'
           make-init-targets-after: 'install'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run build
+        run: docker compose exec app pnpm run build --mode test
 
       - name: Run Test Suite
         run: docker compose exec app pnpm run test

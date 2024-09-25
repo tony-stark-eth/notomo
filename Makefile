@@ -40,6 +40,7 @@ install:
 	@echo "Installing dependencies inside the container..."
 	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) pnpm install
 	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) pnpm exec playwright install
+	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) pnpm run mikro-orm schema:fresh --drop-db --run
 
 # Restart containers
 restart:

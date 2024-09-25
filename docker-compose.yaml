@@ -5,8 +5,8 @@ services:
     profiles:
       - default
       - full
-    image: ghcr.io/bavragor/${DOCKER_IMAGE_TAG:-notomoto:latest}
-    container_name: notomoto
+    image: ghcr.io/${GITHUB_ACTOR:-tony-stark-eth}/${DOCKER_IMAGE_TAG:-notomo:latest}
+    container_name: notomo
     build:
       context: .
       dockerfile: .docker/node/Dockerfile
@@ -24,7 +24,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
     env_file:
-      - .env
+      - .env.docker
     restart: 'unless-stopped'
     tty: true
   database:
@@ -42,9 +42,9 @@ services:
     #    tmpfs:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      POSTGRES_USER: ${DATABASE_USER:-notomoto}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-notomoto-pw}
-      POSTGRES_DB: ${DATABASE_NAME:-notomoto}
+      POSTGRES_USER: ${DATABASE_USER:-notomo}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-notomo-pw}
+      POSTGRES_DB: ${DATABASE_NAME:-notomo}
 
   adminer:
     profiles:

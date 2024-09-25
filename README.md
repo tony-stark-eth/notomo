@@ -1,22 +1,34 @@
-# Vite SvelteKit Docker Template
+# Notomo - Notes App
 
-This template offers the following things, ready to use, in a dockerized environment:
+## Used Technologies
 
 - [Vite](https://vitejs.dev/)
-- [SvelteKit](https://kit.svelte.dev/) with [Svelte 5](https://svelte.dev/blog/svelte-5-release-candidate) (TypeScript)
+- [SvelteKit](https://svelte.dev/) with [Svelte 5](https://svelte.dev/) (TypeScript)
+- [MikroORM](https://mikro-orm.io/)
+- [Lucia Auth](https://lucia-auth.com/) with [Arctic](https://arctic.js.org/) for OAuth Sign-In via Github
+
+### Styling
+
+- [TailwindCSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+
+### Infrastructure
+
+- [Docker](https://www.docker.com/)
+- [Github CI/CD](https://github.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+### Code Style
+
 - [ESLint](https://www.npmjs.com/package/eslint)
 - [Prettier](https://prettier.io/)
 - [Svelte-Check](https://www.npmjs.com/package/svelte-check)
-- Testing Svelte with [Vitest](https://vitest.dev/) & [Testing Library](https://www.npmjs.com/package/@testing-library/svelte)
-- E2E Testing with [Playwright](https://playwright.dev/)
 
-## Create with it!
+### Testing
 
-Create with Svelte 5 (experimental):
-
-```sh
-npx degit bavragor/vite-sveltekit-docker-template app-name
-```
+- Test Runner: [Vitest](https://vitest.dev/)
+- Integration Testing: [Testing Library](https://www.npmjs.com/package/@testing-library/svelte)
+- E2E Testing: [Playwright](https://playwright.dev/)
 
 ## Requirements
 
@@ -29,12 +41,19 @@ npx degit bavragor/vite-sveltekit-docker-template app-name
 make setup
 make up
 make install
+docker compose exec app pnpm run mikro-orm schema:fresh --run
 ```
 
 ## Development
 
 ```sh
 docker compose exec app pnpm run dev
+```
+
+Seed database
+
+```sh
+docker compose exec app pnpm run mikro-orm schema:fresh --run --drop-db --seed
 ```
 
 ## Build
@@ -55,16 +74,14 @@ docker compose exec app pnpm run preview
 docker compose exec app pnpm run test
 ```
 
+```sh
+docker compose exec app pnpm run test:e2e
+```
+
 Or with coverage in build directory
 
 ```sh
 docker compose exec app pnpm run test:coverage
-```
-
-E2E Testing
-
-```sh
-docker compose exec app pnpm run test:e2e
 ```
 
 ## OS specific settings
