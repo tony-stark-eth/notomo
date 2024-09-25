@@ -7,7 +7,8 @@ This template offers the following things, ready to use, in a dockerized environ
 - [ESLint](https://www.npmjs.com/package/eslint)
 - [Prettier](https://prettier.io/)
 - [Svelte-Check](https://www.npmjs.com/package/svelte-check)
-- Testing Svelte with [Vitest](https://vitest.dev/) & [Testing Library](https://www.npmjs.com/package/@testing-library/svelte)
+- Testing Svelte
+  with [Vitest](https://vitest.dev/) & [Testing Library](https://www.npmjs.com/package/@testing-library/svelte)
 - E2E Testing with [Playwright](https://playwright.dev/)
 
 ## Create with it!

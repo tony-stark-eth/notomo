@@ -1,5 +1,5 @@
 {
-  "name": "notomoto",
+  "name": "notomo",
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@9.10.0",
@@ -7,7 +7,7 @@
     "pnpm": "^9.0.0"
   },
   "scripts": {
-    "dev": "vite dev",
+    "dev": "NODE_OPTIONS=\"--import tsx/esm\" pnpm exec vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -19,9 +19,13 @@
     "lint:base": "eslint --cache --cache-location='node_modules/.cache/eslint/'",
     "lint:fix": "pnpm run lint:base --fix .",
     "prettier:base": "prettier",
-    "prettier": "pnpm run prettier:base --write ."
+    "prettier": "pnpm run prettier:base --write .",
+    "mikro-orm": "NODE_OPTIONS=\"--import tsx/esm\" pnpm exec mikro-orm --config src/mikro-orm.config.ts "
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.0.1",
+    "@iconify/json": "^2.2.252",
+    "@mikro-orm/seeder": "^6.3.10",
     "@playwright/test": "^1.47.1",
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/kit": "^2.0.0",
@@ -30,25 +34,39 @@
     "@testing-library/svelte": "^5.2.1",
     "@types/eslint": "^9.6.0",
     "@types/node": "^22.5.5",
+    "@types/uuid": "^10.0.0",
     "@vitest/coverage-istanbul": "^2.1.1",
     "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.10",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-n": "^17.10.3",
+    "eslint-plugin-perfectionist": "^3.7.0",
     "eslint-plugin-svelte": "^2.36.0",
     "globals": "^15.0.0",
     "jsdom": "^25.0.0",
+    "lucia": "^3.2.0",
     "postcss": "^8.4.47",
     "prettier": "^3.1.1",
     "prettier-plugin-svelte": "^3.1.2",
-    "prettier-plugin-tailwindcss": "^0.6.6",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "svelte": "^5.0.0-next.1",
     "svelte-check": "^4.0.0",
-    "tailwindcss": "^3.4.12",
+    "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.1",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.0.0",
+    "unplugin-icons": "^0.19.3",
     "vite": "^5.0.3",
     "vitest": "^2.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@mikro-orm/cli": "^6.3.10",
+    "@mikro-orm/core": "^6.3.10",
+    "@mikro-orm/postgresql": "^6.3.10",
+    "@tony-stark-eth/lucia-mikro-orm-adapter": "^1.0.0",
+    "arctic": "^1.9.2",
+    "uuid": "^10.0.0"
+  }
 }
