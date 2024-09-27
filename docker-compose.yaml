@@ -5,7 +5,7 @@ services:
     profiles:
       - default
       - full
-    image: ghcr.io/tony-stark-eth/${DOCKER_IMAGE_TAG:-notomo:latest}
+    image: ghcr.io/${GITHUB_ACTOR:-tony-stark-eth}/${DOCKER_IMAGE_TAG:-notomo:latest}
     container_name: notomo
     build:
       context: .
