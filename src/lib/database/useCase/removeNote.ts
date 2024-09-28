@@ -1,7 +1,7 @@
-import { MikroORM } from '$lib/database/MikroORM';
+import type { EntityManager } from '@mikro-orm/core';
+
 import { Note } from '$lib/database/schema/Note';
 
-export async function removeNote(uuid: string) {
-  const entityManager = MikroORM.em.fork();
+export async function removeNote(entityManager: EntityManager, uuid: string) {
   return entityManager.removeAndFlush(entityManager.getReference(Note, uuid));
 }

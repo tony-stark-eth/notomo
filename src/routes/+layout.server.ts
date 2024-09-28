@@ -1,4 +1,4 @@
-import type { Session } from '@tony-stark-eth/lucia-mikro-orm-adapter';
+import { Session } from '@tony-stark-eth/lucia-mikro-orm-adapter';
 
 import type { PageServerLoad } from './$types';
 

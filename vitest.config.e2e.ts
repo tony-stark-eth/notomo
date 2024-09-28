@@ -1,9 +1,14 @@
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import process from 'node:process';
+import { sveltekit } from '@sveltejs/kit/vite';
+import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [svelte({ compilerOptions: { hmr: !process.env.VITEST } })],
+  plugins: [
+    sveltekit(),
+    Icons({
+      compiler: 'svelte',
+    }),
+  ],
   test: {
     environment: 'jsdom',
     globals: true,

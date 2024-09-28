@@ -1,10 +1,16 @@
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { sveltekit } from '@sveltejs/kit/vite';
 import { svelteTesting } from '@testing-library/svelte/vite';
-import process from 'node:process';
+import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [svelte({ compilerOptions: { hmr: !process.env.VITEST } }), svelteTesting()],
+  plugins: [
+    sveltekit(),
+    svelteTesting(),
+    Icons({
+      compiler: 'svelte',
+    }),
+  ],
   test: {
     coverage: {
       include: ['src/**'],

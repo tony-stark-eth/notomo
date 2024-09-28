@@ -1,7 +1,7 @@
-import { MikroORM } from '$lib/database/MikroORM';
 import { Note } from '$lib/database/schema/Note';
+import { EntityManager } from '@mikro-orm/core';
 
-export async function updateNote(note: Note) {
-  const entityManager = MikroORM.em.fork();
-  return entityManager.persistAndFlush(note);
+export async function updateNote(entityManager: EntityManager, note: Note): Promise<Note> {
+  await entityManager.persistAndFlush(note);
+  return note;
 }

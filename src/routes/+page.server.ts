@@ -1,4 +1,5 @@
 import { ContentType } from '$lib/database/enum/ContentType';
+import { MikroORM } from '$lib/database/MikroORM';
 import { Note } from '$lib/database/schema/Note';
 import { createNote, getNotes, removeNote } from '$lib/database/useCase';
 import { lucia } from '$lib/server/auth';
@@ -10,7 +11,7 @@ type OutputType = { count: number; notes: Array<Note> };
 
 export const load: PageServerLoad<OutputType> = async function ({ locals }) {
   if (!locals.user) redirect(302, '/login');
-  const [notes, count] = await getNotes(25, 0);
+  const [notes, count] = await getNotes(MikroORM.em.fork(), 25, 0);
 
   return {
     count,
@@ -39,7 +40,7 @@ export const actions = {
 
     const note = new Note(title, content, contentType as ContentType);
 
-    await createNote(note);
+    await createNote(MikroORM.em.fork(), note);
 
     return { success: true };
   },
@@ -63,7 +64,7 @@ export const actions = {
       return fail(400, { missing: true, noteUuid });
     }
 
-    await removeNote(noteUuid.toString());
+    await removeNote(MikroORM.em.fork(), noteUuid.toString());
 
     return { success: true };
   },
