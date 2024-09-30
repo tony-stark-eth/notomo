@@ -13,13 +13,13 @@ importers:
         version: 6.3.10(pg@8.12.0)
       '@mikro-orm/core':
         specifier: ^6.3.10
-        version: 6.3.10
+        version: 6.3.11
       '@mikro-orm/postgresql':
         specifier: ^6.3.10
-        version: 6.3.10(@mikro-orm/core@6.3.10)
+        version: 6.3.10(@mikro-orm/core@6.3.11)
       '@tony-stark-eth/lucia-mikro-orm-adapter':
         specifier: ^1.0.0
-        version: 1.0.0(@mikro-orm/core@6.3.10)(lucia@3.2.0)
+        version: 1.0.0(@mikro-orm/core@6.3.11)(lucia@3.2.0)
       arctic:
         specifier: ^1.9.2
         version: 1.9.2
@@ -35,7 +35,7 @@ importers:
         version: 2.2.252
       '@mikro-orm/seeder':
         specifier: ^6.3.10
-        version: 6.3.10(@mikro-orm/core@6.3.10)
+        version: 6.3.10(@mikro-orm/core@6.3.11)
       '@playwright/test':
         specifier: ^1.47.1
         version: 1.47.1
@@ -636,6 +636,10 @@ packages:
 
   '@mikro-orm/core@6.3.10':
     resolution: {integrity: sha512-Z41EbAYY3eESvJEV8V6jpFevGiy95qLUmII6iXGsQ3aU6yu3JLKilQ1xoP86q7raMXODWui1lhumdbCHD7KrRQ==}
+    engines: {node: '>= 18.12.0'}
+
+  '@mikro-orm/core@6.3.11':
+    resolution: {integrity: sha512-pNd74bIDwpWMC0TV4R3hPIddzaydDzvv5pRi7QvX6UdASDEUdWfp185cH6QRi1bbWqlI70GXOBR8Bnzj1bbtpA==}
     engines: {node: '>= 18.12.0'}
 
   '@mikro-orm/knex@6.3.10':
@@ -2040,6 +2044,10 @@ packages:
 
   mikro-orm@6.3.10:
     resolution: {integrity: sha512-IgVZ2HElW6hgG9P7IT5jvR7PE4CKk/PAQPlNV+mwf9j+m1OdpllW7sSBXgY5ZA8VMGoYAags2Jkvw/pXj5bspA==}
+    engines: {node: '>= 18.12.0'}
+
+  mikro-orm@6.3.11:
+    resolution: {integrity: sha512-RaOd6+3jm9TLtBAJ9vtgpzt6CnzARZwKZjLaNvXL65BLammDp8QWRBmUUqNPp0xwWYqdFgH8V7YFG/fyuMEJXQ==}
     engines: {node: '>= 18.12.0'}
 
   mime-db@1.52.0:
@@ -3562,6 +3570,16 @@ snapshots:
       mikro-orm: 6.3.10
       reflect-metadata: 0.2.2
 
+  '@mikro-orm/core@6.3.11':
+    dependencies:
+      dataloader: 2.2.2
+      dotenv: 16.4.5
+      esprima: 4.0.1
+      fs-extra: 11.2.0
+      globby: 11.1.0
+      mikro-orm: 6.3.11
+      reflect-metadata: 0.2.2
+
   '@mikro-orm/knex@6.3.10(@mikro-orm/core@6.3.10)(pg@8.12.0)':
     dependencies:
       '@mikro-orm/core': 6.3.10
@@ -3577,10 +3595,25 @@ snapshots:
       - supports-color
       - tedious
 
-  '@mikro-orm/postgresql@6.3.10(@mikro-orm/core@6.3.10)':
+  '@mikro-orm/knex@6.3.10(@mikro-orm/core@6.3.11)(pg@8.12.0)':
     dependencies:
-      '@mikro-orm/core': 6.3.10
-      '@mikro-orm/knex': 6.3.10(@mikro-orm/core@6.3.10)(pg@8.12.0)
+      '@mikro-orm/core': 6.3.11
+      fs-extra: 11.2.0
+      knex: 3.1.0(pg@8.12.0)
+      sqlstring: 2.3.3
+    transitivePeerDependencies:
+      - mysql
+      - mysql2
+      - pg
+      - pg-native
+      - sqlite3
+      - supports-color
+      - tedious
+
+  '@mikro-orm/postgresql@6.3.10(@mikro-orm/core@6.3.11)':
+    dependencies:
+      '@mikro-orm/core': 6.3.11
+      '@mikro-orm/knex': 6.3.10(@mikro-orm/core@6.3.11)(pg@8.12.0)
       pg: 8.12.0
       postgres-array: 3.0.2
       postgres-date: 2.1.0
@@ -3596,9 +3629,9 @@ snapshots:
       - supports-color
       - tedious
 
-  '@mikro-orm/seeder@6.3.10(@mikro-orm/core@6.3.10)':
+  '@mikro-orm/seeder@6.3.10(@mikro-orm/core@6.3.11)':
     dependencies:
-      '@mikro-orm/core': 6.3.10
+      '@mikro-orm/core': 6.3.11
       fs-extra: 11.2.0
       globby: 11.1.0
 
@@ -3873,9 +3906,9 @@ snapshots:
       vite: 5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3)
       vitest: 2.1.1(@types/node@22.5.5)(jsdom@25.0.0)(sass-embedded@1.79.3)
 
-  '@tony-stark-eth/lucia-mikro-orm-adapter@1.0.0(@mikro-orm/core@6.3.10)(lucia@3.2.0)':
+  '@tony-stark-eth/lucia-mikro-orm-adapter@1.0.0(@mikro-orm/core@6.3.11)(lucia@3.2.0)':
     dependencies:
-      '@mikro-orm/core': 6.3.10
+      '@mikro-orm/core': 6.3.11
       lucia: 3.2.0
       uuid: 10.0.0
 
@@ -4988,6 +5021,8 @@ snapshots:
       picomatch: 2.3.1
 
   mikro-orm@6.3.10: {}
+
+  mikro-orm@6.3.11: {}
 
   mime-db@1.52.0: {}
 
