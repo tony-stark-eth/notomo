@@ -35,7 +35,7 @@ importers:
         version: 2.2.252
       '@mikro-orm/seeder':
         specifier: ^6.3.10
-        version: 6.3.10(@mikro-orm/core@6.3.10)
+        version: 6.3.11(@mikro-orm/core@6.3.10)
       '@playwright/test':
         specifier: ^1.47.1
         version: 1.47.1
@@ -660,8 +660,8 @@ packages:
     peerDependencies:
       '@mikro-orm/core': ^6.0.0
 
-  '@mikro-orm/seeder@6.3.10':
-    resolution: {integrity: sha512-EFDalpYqecVjS6s92I2HeySfQWF5Pqh3ksWS5/dr5rT8EMtXty+BqV/aNtUp0Q2szGx75nNf2ijp9XYyczhvDA==}
+  '@mikro-orm/seeder@6.3.11':
+    resolution: {integrity: sha512-0jO0+kP2hIfcmApy3tV4jK07DnNmLtwNoBrUCkSjA8066ToWGmwnRJO8qiKNeQWOHXWh3cD790o+rW/yLiT7Zg==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
       '@mikro-orm/core': ^6.0.0
@@ -3596,7 +3596,7 @@ snapshots:
       - supports-color
       - tedious
 
-  '@mikro-orm/seeder@6.3.10(@mikro-orm/core@6.3.10)':
+  '@mikro-orm/seeder@6.3.11(@mikro-orm/core@6.3.10)':
     dependencies:
       '@mikro-orm/core': 6.3.10
       fs-extra: 11.2.0
