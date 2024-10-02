@@ -11,12 +11,12 @@ describe('useCase', () => {
   beforeAll(async () => {
     // Initialize the Mikro-ORM instance with the test database
     ORM = await MikroORM.init({
-      dbName: env.DATABASE_NAME_TEST,
+      dbName: env.DATABASE_NAME,
       entities: ['./src/lib/database/schema/**/*.{ts,js}', './node_modules/@tony-stark-eth/lucia-mikro-orm-adapter/dist/**/*.{ts,js}'],
       host: env.DATABASE_HOST,
-      password: env.DATABASE_PASSWORD_TEST,
-      schema: env.DATABASE_NAME_TEST,
-      user: env.DATABASE_USER_TEST,
+      password: env.DATABASE_PASSWORD,
+      schema: env.DATABASE_NAME,
+      user: env.DATABASE_USER,
     });
   });
 

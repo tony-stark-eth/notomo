@@ -24,7 +24,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV:-development}
     env_file:
-      - .env
+      - .env.docker
     restart: 'unless-stopped'
     tty: true
   database:

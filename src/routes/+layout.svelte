@@ -13,9 +13,11 @@
 
   let iconMenuHovered: boolean = $state(false);
   let wasOpenedManually: boolean = $state(false);
-
-  console.log(data.user);
 </script>
+
+<svelte:head>
+  <title>Notomo</title>
+</svelte:head>
 
 <div class="navbar bg-base-100 shadow">
   <div class="flex-none">

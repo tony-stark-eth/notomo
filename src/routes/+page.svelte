@@ -17,19 +17,19 @@
       name="title"
       onclick={() => (creationMaskVisible = true)}
       onfocus={() => (creationMaskVisible = true)}
-      placeholder="Notiz schreiben..."
+      placeholder="Write note..."
       type="text"
       value={form?.title ?? ''}
     />
   </div>
   <div class="form-control mb-5" class:hidden={!creationMaskVisible}>
-    <textarea class="textarea textarea-bordered" name="content">{form?.content ?? ''}</textarea>
+    <textarea class="textarea textarea-bordered" name="content" placeholder="Describing your note...">{form?.content ?? ''}</textarea>
   </div>
   <input name="contentType" type="hidden" value={ContentType.Text} />
   <button class="btn" class:hidden={!creationMaskVisible} type="submit">Add note</button>
 </form>
 
-<ul class="grid grid-cols-2 overflow-hidden pl-5">
+<ul class="grid grid-cols-2 overflow-hidden pl-5" id="note-container">
   {#each data.notes as note}
     <li class="h-34 m-5 ml-0 overflow-hidden rounded p-5 shadow outline outline-base-200">
       <a

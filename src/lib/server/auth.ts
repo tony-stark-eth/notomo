@@ -1,8 +1,7 @@
-import type { OAuthProviderAttributes } from '@tony-stark-eth/lucia-mikro-orm-adapter';
-
 import { dev } from '$app/environment';
 import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from '$env/static/private';
 import { MikroORM } from '$lib/database/MikroORM';
+import { OAuthProviderAttributes } from '@tony-stark-eth/lucia-mikro-orm-adapter';
 import { MikroOrmAdapter } from '@tony-stark-eth/lucia-mikro-orm-adapter';
 import { GitHub as GithubProvider } from 'arctic';
 import { Lucia } from 'lucia';
