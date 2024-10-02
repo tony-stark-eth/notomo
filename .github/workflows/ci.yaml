@@ -64,7 +64,7 @@ jobs:
         with:
           docker-image-tag: ${{ needs.docker-bake.outputs.docker-image-tag }}
           docker-compose-services: 'app database'
-          make-init-targets-before: ''
+          make-init-targets-before: 'setup'
           make-init-targets-after: 'install'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -91,7 +91,7 @@ jobs:
         with:
           docker-image-tag: ${{ needs.docker-bake.outputs.docker-image-tag }}
           docker-compose-services: 'app database'
-          make-init-targets-before: ''
+          make-init-targets-before: 'setup'
           make-init-targets-after: 'install'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 

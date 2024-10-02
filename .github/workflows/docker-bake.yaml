@@ -95,8 +95,6 @@ jobs:
           set: |
             *.platform=linux/amd64
             app.tags=ghcr.io/${{ github.repository }}:${{ steps.docker-image-tag.outputs.tag }}
-            *.cache-from=type=gha
-            *.cache-to=type=gha,mode=max
 
       - name: Bake and Push Docker Images (Main)
         if: steps.docker-image-tag.outputs.tag == 'latest'
@@ -107,5 +105,3 @@ jobs:
           set: |
             *.platform=linux/amd64,linux/arm64
             app.tags=ghcr.io/${{ github.repository }}:${{ steps.docker-image-tag.outputs.tag }}
-            *.cache-from=type=gha
-            *.cache-to=type=gha,mode=max
