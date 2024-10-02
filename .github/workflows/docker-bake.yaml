@@ -79,9 +79,6 @@ jobs:
       - name: Run setup.sh
         run: ./setup.sh
 
-      - name: Register vars from .env.docker
-        run: export $(grep -v '^#' .env.docker | xargs)
-
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -92,6 +89,7 @@ jobs:
       - name: Bake and Push Docker Images (PR)
         if: steps.docker-image-tag.outputs.tag != 'latest'
         uses: docker/bake-action@v5.7.0
+        run: export $(grep -v '^#' .env.docker | xargs)
         with:
           source: .
           push: true
