@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copy .env.dist to .env
+cp .env.dist .env
+
 # Get the current user's UID and GID
 USER_UID=$(id -u)
 USER_GID=$(id -g)
