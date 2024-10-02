@@ -8,9 +8,10 @@ USER_UID=$(id -u)
 USER_GID=$(id -g)
 
 # Replace placeholders in .env.docker with actual UID and GID
-sed -i "s/UID=.*$/UID=${USER_UID}/" .env.docker
-sed -i "s/GID=.*$/GID=${USER_GID}/" .env.docker
+sed -i "s/UID=.*$/UID=${USER_UID}/" .env
+sed -i "s/GID=.*$/GID=${USER_GID}/" .env
 
+cat .env
 cat .env.docker
 
-echo ".env.docker file has been updated with UID and GID."
+echo ".env and file has been updated with UID and GID."
