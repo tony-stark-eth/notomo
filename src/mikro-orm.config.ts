@@ -1,6 +1,12 @@
 import { defineConfig } from '@mikro-orm/postgresql';
+import path from 'node:path';
 import process from 'node:process';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { loadEnv } from 'vite';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 let viteEnvMode = '';
 const indexModeOption = process.argv.indexOf('--mode');
@@ -9,7 +15,7 @@ if (indexModeOption !== -1) {
   viteEnvMode = process.argv[indexModeOption + 1];
 }
 
-const env = loadEnv(viteEnvMode, process.cwd(), '');
+const env = loadEnv(viteEnvMode, path.resolve(__dirname, '../'), '');
 
 // no need to specify the `driver` now, it will be inferred automatically
 export default defineConfig({
