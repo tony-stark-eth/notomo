@@ -37,8 +37,6 @@ down:
 
 # Install dependencies
 install:
-	@echo "Ensure correct access..."
-	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) chown -R node:node /home/node/app
 	@echo "Installing dependencies inside the container..."
 	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) pnpm install
 	docker compose -f $(DOCKER_COMPOSE_FILE) exec $(SERVICE_NAME) pnpm exec playwright install
