@@ -11,4 +11,6 @@ USER_GID=$(id -g)
 sed -i "s/UID=.*$/UID=${USER_UID}/" .env.docker
 sed -i "s/GID=.*$/GID=${USER_GID}/" .env.docker
 
+cat .env.docker
+
 echo ".env.docker file has been updated with UID and GID."
