@@ -51,6 +51,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker-bake
     timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Check Out
         uses: actions/checkout@v4
@@ -75,6 +78,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker-bake
     timeout-minutes: 25
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Check Out
         uses: actions/checkout@v4
