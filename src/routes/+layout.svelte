@@ -7,6 +7,7 @@
 
   const { children, data } = $props();
   import { page } from '$app/stores';
+  import { PUBLIC_UMAMI_ID } from '$env/static/public';
   import { clickOutside } from '$lib/eventHandler/clickOutside';
 
   const activeUrl = $derived($page.url.pathname);
@@ -17,6 +18,7 @@
 
 <svelte:head>
   <title>Notomo</title>
+  <script crossorigin="anonymous" data-website-id={PUBLIC_UMAMI_ID} defer src="/stats/script.js"></script>
 </svelte:head>
 
 <div class="navbar bg-base-100 shadow">

@@ -17,8 +17,6 @@ if (indexModeOption !== -1) {
 
 const env = loadEnv(viteEnvMode, path.resolve(__dirname, '../'), '');
 
-console.log(viteEnvMode, path.resolve(__dirname, '../'));
-
 // no need to specify the `driver` now, it will be inferred automatically
 export default defineConfig({
   dbName: env.DATABASE_NAME,

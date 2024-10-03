@@ -37,6 +37,7 @@ jobs:
               - '.docker/node/**'
               - '.github/workflows/docker-bake.yaml'
               - '.env.docker'
+              - '.env.dist'
               - 'docker-compose.yaml'
 
   bake:
