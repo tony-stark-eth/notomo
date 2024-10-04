@@ -16,7 +16,7 @@ importers:
         version: 6.3.11
       '@mikro-orm/postgresql':
         specifier: ^6.3.11
-        version: 6.3.11(@mikro-orm/core@6.3.11)
+        version: 6.3.12(@mikro-orm/core@6.3.11)
       '@sentry/sveltekit':
         specifier: ^8.33.1
         version: 8.33.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/semantic-conventions@1.27.0)(@sveltejs/kit@2.6.1(@sveltejs/vite-plugin-svelte@4.0.0-next.7(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3)))(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3)))(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3))
@@ -664,8 +664,24 @@ packages:
       mariadb:
         optional: true
 
-  '@mikro-orm/postgresql@6.3.11':
-    resolution: {integrity: sha512-0SXVybnarlTOiO1wm77ZGTB9243u3WC2OXyKosTmJUoVRvrwMDZrbuiHjRdRNZQQH9zV7wuRNOY7JyMJ/HUaBQ==}
+  '@mikro-orm/knex@6.3.12':
+    resolution: {integrity: sha512-TQ8lU+jwsZ0FWEnBvgICgyVOx4g0j8Vm7kOKC+fJDdXPpBz3N4JYu+y30NQ0fIiPEHBzOpvusCV42FxhSQ/DVQ==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      '@mikro-orm/core': ^6.0.0
+      better-sqlite3: '*'
+      libsql: '*'
+      mariadb: '*'
+    peerDependenciesMeta:
+      better-sqlite3:
+        optional: true
+      libsql:
+        optional: true
+      mariadb:
+        optional: true
+
+  '@mikro-orm/postgresql@6.3.12':
+    resolution: {integrity: sha512-DSHftwSgBhHfozHckVsEhRBf2/ZqCdZB8T+4z/Z6Tgf9sDNnXUJ+69y9s2ndnsr7YZm+WS5PdmH4WhPYjVbPuw==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
       '@mikro-orm/core': ^6.0.0
@@ -4217,10 +4233,25 @@ snapshots:
       - supports-color
       - tedious
 
-  '@mikro-orm/postgresql@6.3.11(@mikro-orm/core@6.3.11)':
+  '@mikro-orm/knex@6.3.12(@mikro-orm/core@6.3.11)(pg@8.13.0)':
     dependencies:
       '@mikro-orm/core': 6.3.11
-      '@mikro-orm/knex': 6.3.11(@mikro-orm/core@6.3.11)(pg@8.13.0)
+      fs-extra: 11.2.0
+      knex: 3.1.0(pg@8.13.0)
+      sqlstring: 2.3.3
+    transitivePeerDependencies:
+      - mysql
+      - mysql2
+      - pg
+      - pg-native
+      - sqlite3
+      - supports-color
+      - tedious
+
+  '@mikro-orm/postgresql@6.3.12(@mikro-orm/core@6.3.11)':
+    dependencies:
+      '@mikro-orm/core': 6.3.11
+      '@mikro-orm/knex': 6.3.12(@mikro-orm/core@6.3.11)(pg@8.13.0)
       pg: 8.13.0
       postgres-array: 3.0.2
       postgres-date: 2.1.0
