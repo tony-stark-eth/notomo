@@ -1,8 +1,16 @@
 import type { Handle } from '@sveltejs/kit';
 
+import { env } from '$env/dynamic/public';
 import { lucia } from '$lib/server/auth';
+import * as Sentry from '@sentry/sveltekit';
+import { sequence } from '@sveltejs/kit/hooks';
 
-export const handle: Handle = async ({ event, resolve }) => {
+Sentry.init({
+  dsn: env.PUBLIC_SENTRY_DSN,
+  tracesSampleRate: 1,
+});
+
+export const handle: Handle = sequence(Sentry.sentryHandle(), async ({ event, resolve }) => {
   const sessionId = event.cookies.get(lucia.sessionCookieName);
 
   if (!sessionId) {
@@ -32,4 +40,5 @@ export const handle: Handle = async ({ event, resolve }) => {
   event.locals.user = user;
   event.locals.session = session;
   return resolve(event);
-};
+});
+export const handleError = Sentry.handleErrorWithSentry();

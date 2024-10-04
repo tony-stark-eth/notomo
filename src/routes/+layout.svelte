@@ -37,7 +37,7 @@
     <a class="btn btn-ghost text-xl" href="/">Notomo</a>
   </div>
   <div class="flex-none gap-2">
-    <div class="form-control">
+    <div class="form-control hidden">
       <input class="input input-bordered w-24 md:w-auto" placeholder="Search" type="text" />
     </div>
     <div class="dropdown dropdown-end">

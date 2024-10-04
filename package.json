@@ -65,6 +65,7 @@
     "@mikro-orm/cli": "^6.3.11",
     "@mikro-orm/core": "^6.3.11",
     "@mikro-orm/postgresql": "^6.3.11",
+    "@sentry/sveltekit": "^8.33.1",
     "@sveltejs/adapter-vercel": "^5.4.4",
     "@tony-stark-eth/lucia-mikro-orm-adapter": "^2.0.0",
     "arctic": "^1.9.2",
