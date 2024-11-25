@@ -59,7 +59,7 @@ importers:
         version: 6.5.0
       '@testing-library/svelte':
         specifier: ^5.2.1
-        version: 5.2.1(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3))(vitest@2.1.1(@types/node@22.5.5)(jsdom@25.0.0)(sass-embedded@1.79.3))
+        version: 5.2.6(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3))(vitest@2.1.1(@types/node@22.5.5)(jsdom@25.0.0)(sass-embedded@1.79.3))
       '@types/eslint':
         specifier: ^9.6.0
         version: 9.6.1
@@ -1323,8 +1323,8 @@ packages:
     resolution: {integrity: sha512-xGGHpBXYSHUUr6XsKBfs85TWlYKpTc37cSBBVrXcib2MkHLboWlkClhWF37JKlDb9KEq3dHs+f2xR7XJEWGBxA==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
 
-  '@testing-library/svelte@5.2.1':
-    resolution: {integrity: sha512-yXSqBsYaQAeP2xt7gqKu135Q67+NTsBDcpL1akv5MVAQ/amb7AQ0zW5nzrquTIE2lvrc6q58KZhQA61Vc05ZOg==}
+  '@testing-library/svelte@5.2.6':
+    resolution: {integrity: sha512-1Y8cEg/BtV4J6g9irkY0ksz+ueDFYLiikjTLiqvQPkOUeDzR4gg2zECBf8yrOrCy3e2TAOYMcaysFa0bQMyk1w==}
     engines: {node: '>= 10'}
     peerDependencies:
       svelte: ^3 || ^4 || ^5 || ^5.0.0-next.0
@@ -4984,7 +4984,7 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/svelte@5.2.1(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3))(vitest@2.1.1(@types/node@22.5.5)(jsdom@25.0.0)(sass-embedded@1.79.3))':
+  '@testing-library/svelte@5.2.6(svelte@5.0.0-next.260)(vite@5.4.6(@types/node@22.5.5)(sass-embedded@1.79.3))(vitest@2.1.1(@types/node@22.5.5)(jsdom@25.0.0)(sass-embedded@1.79.3))':
     dependencies:
       '@testing-library/dom': 10.4.0
       svelte: 5.0.0-next.260
